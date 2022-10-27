@@ -4,6 +4,7 @@
     Author     : Pc
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -632,19 +633,31 @@ label.valid {
 
                     <div class="signin-form my-4">
                         <h2 class="form-title">Login</h2>
-                        <form method="POST" class="register-form" id="login-form">
+                        
+                        
+                        
+                        
+                        <form action="DBconnectLogin.jsp" method="post" class="register-form" id="login-form">
+                                <c:if test="${not empty logIn}">
+                                    <h5 class="text-center" style="color:#303f9f">${logIn}</h5>
+                                </c:if>
+                                
+                                    <c:if test="${not empty error}">
+                                        <h5 class="text-center" style="color:red">${error}</h5>
+                                    </c:if>
+                                    
+                              
                             <div class="form-group">
+                                
+                          
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="Your Name"/>
+                                <input type="text" name="email" id="name" placeholder="Your email"/>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="Password"/>
+                                <input type="password" name="pass" id="pass" placeholder="Password"/>
                             </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                            </div>
+                           
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Log in" style="background-color:#303f9f"/>
                             </div>
